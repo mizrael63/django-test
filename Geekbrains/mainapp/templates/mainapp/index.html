@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.png">
+    <title>{% block title %}Главная{% endblock %}</title>
+
+</head>
+<body>
+
+{% block menu %}
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/products/">Products</a></li>
+        <li><a href="/contacts/">Contacts</a></li>
+    </ul>
+{% endblock %}
+<h1 class="index">{% block name %}Главная{% endblock %}</h1>
+<hr color="#4DB342" size="2">
+ <div class="wrapper">
+    <div class="content">{% block content %}{% endblock %}</div>
+    <div class="footer-bg footer">
+        <div class="copyright">
+            <p><strong>Учебный сайт «Django-framework»</strong></p>
+            <p>&copy; Арсланов Михаил Васимович</p>
+        </div>
+    </div>
+ </div>
+
+</body>
+</html>
