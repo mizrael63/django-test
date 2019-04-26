@@ -1,33 +1,24 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
-    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.png">
-    <title>{% block title %}Главная{% endblock %}</title>
+{% extends 'mainapp/base.html' %}
+{% block title %}Главная{% endblock %}
+{% block name %}Главная{% endblock %}
 
-</head>
-<body>
+{% block content %}
 
-{% block menu %}
-    <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/products/">Products</a></li>
-        <li><a href="/contacts/">Contacts</a></li>
-    </ul>
+    <div>Привет {{ user.name|title }}!</div>
+    <div>{% now 'Y'%}</div>
+    {% if array|length > 0 %}
+        <h2>'Число из массива: ' {{ array.2}}</h2>
+    {% endif %}
+    {% for item in array %}
+        <h3>{{item}}</h3>
+    {% endfor %}
+
+    {% include 'mainapp/includes/inc_area.html' %}
+    <br>
+    <h2>include ares 2 clock</h2>
+    {% include 'mainapp/includes/inc_area2.html' %}
 {% endblock %}
-<h1 class="index">{% block name %}Главная{% endblock %}</h1>
-<hr color="#4DB342" size="2">
- <div class="wrapper">
-    <div class="content">{% block content %}{% endblock %}</div>
-    <div class="footer-bg footer">
-        <div class="copyright">
-            <p><strong>Учебный сайт «Django-framework»</strong></p>
-            <p>&copy; Арсланов Михаил Васимович</p>
-        </div>
-    </div>
- </div>
+{% block js %}
+    {% include 'mainapp/includes/inc_js.html' %}
+{% endblock %}
 
-</body>
-</html>
