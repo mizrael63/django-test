@@ -12,12 +12,8 @@
 
 </head>
 <body>
+<ul class="menu">{% include 'mainapp/includes/inc_menu.html' %}</ul>
 
-<ul class="menu">
-        <li><a href="{% url 'main_page' %}">Home</a></li>
-        <li><a href="{% url 'products' %}">Products</a></li>
-        <li><a href="{% url 'contacts' %}">Contacts</a></li>
-    </ul>
 <h1 class="index">
     {% block name %} GH {% endblock %}
 </h1>
