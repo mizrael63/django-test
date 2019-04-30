@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+Каталог {{ category.name }}
+{% endblock %}
+{% block name %}Каталог {% endblock %}
+
+{% block content %}
+<h2>Имя: {{ category.name }}</h2>
+<h2>Код {{ category.code }}</h2>
+<h2>Подкаталоги (категории):</h2>
+    {% for full in somecatalog %}
+<li><a href="/{{full.code}}/{{full.slug}}">{{ full.name }}</a></li>
+{% endfor %}
+<h2><p>Описание: {{ category.seo_descr }}</h2>
+<h2>Изображение:</h2>
+<img src="/media/{{ category.image }}"></a>
+<div class="product-detail">
+    <div class="col-sm-4">
+      <img src="{{ catalog.image.url }}" class="img-responsive">
+    </div>
+    <div class="col-sm-8">
+      <h1>{{ catalog.name }}</h1>
+      <h2><a href="{{ catalog.get_absolute_url }}">{{ catalog.name }}</a></h2>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+{% block js %}
+    {% include 'mainapp/includes/inc_js.html' %}
+{% endblock %}
+
