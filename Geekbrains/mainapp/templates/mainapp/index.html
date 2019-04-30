@@ -4,19 +4,19 @@
 
 {% block content %}
 
-    <div>Привет {{ user.name|title }}!</div>
-    <div>{% now 'Y'%}</div>
-    {% if array|length > 0 %}
-        <h2>'Число из массива: ' {{ array.2}}</h2>
-    {% endif %}
-    {% for item in array %}
-        <h3>{{item}}</h3>
-    {% endfor %}
-
-    {% include 'mainapp/includes/inc_area.html' %}
+<!--#{% include 'mainapp/includes/inc_area.html' %}-->
     <br>
     <h2>include ares 2 clock</h2>
     {% include 'mainapp/includes/inc_area2.html' %}
+<hr>
+Data from database
+<hr>
+    {% for category in full_catalog %}
+        <li>{{ category.name }} {{ category.slug }}
+          <a href="/catalog/{{category.slug}}">{{ category.name }}</a></li>
+    {% endfor %}
+<hr>
+
 {% endblock %}
 {% block js %}
     {% include 'mainapp/includes/inc_js.html' %}
