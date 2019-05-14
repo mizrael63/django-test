@@ -1,0 +1,17 @@
+<li><a href="/">Home</a></li>
+<!--<li><a href="/catalog">Catalog</a></li>-->
+<li><a href="{% url 'contacts' %}">Contacts</a></li>
+<li><a href="/admin/">Админка</a></li>
+
+{% if user.is_authenticated %}
+<li>Добро пожаловать {{ user.first_name|default:'Пользователь' }}!
+</li>
+{% endif %}
+
+    {% if user.is_authenticated %}
+<li><a href="{% url 'auth:edit' %}">Редактировать профиль</a></li>
+<li><a href="{% url 'auth:logout' %}">выйти</a></li>
+    {% else %}
+      <li><a href="{% url 'auth:login' %}">войти</a></li>
+      <li><a href="{% url 'auth:register' %}">Зарегистрироваться</a></li>
+    {% endif %}
